@@ -23,12 +23,14 @@ const routes = (app) => {
         res.set({
             "Access-Control-Allow-Credentials": "true",
             "Access-Control-Allow-Private-Network": "true",
-            "Access-Control-Allow-Origin": req.headers.origin
+            "Access-Control-Allow-Origin": "http://localhost:4200"
         })
         res.send(toto);
     })
     .post((req, res) =>
-        res.send('La demande Post avec succès'));
+        res.send('La demande Post avec succès'))
+    .options((req, res) =>
+        res.send('Options OK'));
 
     app.route('/contact/:contactId')
     .put((req, res) =>
